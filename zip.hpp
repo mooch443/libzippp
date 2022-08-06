@@ -325,7 +325,7 @@ public:
     /**
      * \brief Base iterator class
      */
-    class iterator : public std::iterator<std::random_access_iterator_tag, libzip::stat> {
+    class iterator {
     private:
         friend class archive;
 
@@ -481,6 +481,7 @@ public:
     };
 
 public:
+    using iterator_category = std::random_access_iterator_tag;
     /**
      * Iterator conversion to Stat.
      */
@@ -510,6 +511,8 @@ public:
      * Const random access iterator.
      */
     using const_iterator = iterator;
+    
+    using difference_type = int64_t;
 
 public:
     /**
